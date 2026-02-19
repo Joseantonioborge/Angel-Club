@@ -7,25 +7,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Fraunces:wght@300;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* ── ANGELCLUB BRAND COLORS (extracted from logo) ── */
-    --brand-blue:    #2882dc;   /* bright A icon blue   */
-    --brand-navy:    #1d4570;   /* dark text navy       */
-    --brand-navy-d:  #152f50;   /* deeper navy          */
-    --brand-blue-l:  #5aaff0;   /* lighter brand blue   */
-    --brand-blue-m:  #1a6bb8;   /* mid brand blue       */
+    /* ── ANGELCLUB BRAND ── */
+    --brand:      #2882dc;
+    --brand-d:    #1d6ab8;
+    --brand-l:    #5aaff0;
+    --brand-xl:   #ddeefb;
+    --navy:       #1d4570;
+    --navy-l:     #2d5a8e;
 
-    /* ── DASHBOARD PALETTE ── */
-    --bg:       #070d14;        /* deepest navy bg      */
-    --surface:  #0d1e30;        /* card background      */
-    --surface2: #112540;        /* slightly lighter     */
-    --text:     #e8f0f8;
-    --off:      #b8cce0;
-    --muted:    #4a6a8a;
-    --green:    #3dd68c;
-    --red:      #e05555;
-    --purple:   #9b6bd4;
-    --border:   rgba(40,130,220,0.2);
-    --border-d: rgba(40,130,220,0.08);
+    /* ── LIGHT PALETTE ── */
+    --bg:         #f0f4f8;
+    --bg2:        #e8eef5;
+    --surface:    #ffffff;
+    --surface2:   #f7f9fc;
+    --text:       #1a2d42;
+    --text-m:     #3d5a78;
+    --muted:      #7a96b0;
+    --border:     rgba(40,130,220,0.15);
+    --border-d:   rgba(40,130,220,0.08);
+    --shadow:     rgba(29,69,112,0.08);
+    --shadow-l:   rgba(29,69,112,0.04);
+
+    /* ── STATUS COLORS ── */
+    --green:      #1a9e6a;
+    --green-l:    #e6f7f1;
+    --green-b:    rgba(26,158,106,0.15);
+    --red:        #d94040;
+    --red-l:      #fdeaea;
+    --red-b:      rgba(217,64,64,0.12);
+    --purple:     #7c4dcc;
+    --purple-l:   #f0eaf8;
+    --purple-b:   rgba(124,77,204,0.12);
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -38,46 +50,41 @@
     overflow-x: hidden;
   }
 
-  /* ── ANIMATED GRID ── */
+  /* ── SUBTLE LIGHT GRID TEXTURE ── */
   body::before {
     content: '';
     position: fixed; inset: 0;
     background-image:
-      linear-gradient(rgba(40,130,220,0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(40,130,220,0.045) 1px, transparent 1px);
-    background-size: 40px 40px;
-    animation: gridMove 22s linear infinite;
+      linear-gradient(rgba(40,130,220,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(40,130,220,0.06) 1px, transparent 1px);
+    background-size: 44px 44px;
     pointer-events: none; z-index: 0;
   }
-  @keyframes gridMove { 0%{transform:translateY(0)} 100%{transform:translateY(40px)} }
 
-  /* ── ORBS (brand blue tones) ── */
-  .orb { position:fixed; border-radius:50%; filter:blur(130px); pointer-events:none; z-index:0; }
-  .orb-1 { width:700px;height:700px;background:#2882dc;opacity:0.07;top:-250px;right:-200px;animation:float1 18s ease-in-out infinite; }
-  .orb-2 { width:400px;height:400px;background:#1d4570;opacity:0.12;bottom:-120px;left:-80px;animation:float2 21s ease-in-out infinite; }
-  .orb-3 { width:280px;height:280px;background:#5aaff0;opacity:0.06;top:40%;left:25%;animation:float3 14s ease-in-out infinite; }
+  /* ── SOFT LIGHT ORBS ── */
+  .orb { position:fixed; border-radius:50%; filter:blur(120px); pointer-events:none; z-index:0; }
+  .orb-1 { width:600px;height:600px;background:var(--brand);opacity:0.06;top:-200px;right:-150px;animation:float1 18s ease-in-out infinite; }
+  .orb-2 { width:400px;height:400px;background:var(--navy);opacity:0.05;bottom:-100px;left:-80px;animation:float2 22s ease-in-out infinite; }
+  .orb-3 { width:250px;height:250px;background:var(--brand-l);opacity:0.08;top:45%;left:22%;animation:float3 14s ease-in-out infinite; }
 
-  @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-40px,50px)} }
-  @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(50px,-40px)} }
-  @keyframes float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,30px)} }
-
-  /* ── KEYFRAMES ── */
-  @keyframes fadeDown { from{opacity:0;transform:translateY(-18px)} to{opacity:1;transform:translateY(0)} }
-  @keyframes fadeUp   { from{opacity:0;transform:translateY(18px)}  to{opacity:1;transform:translateY(0)} }
+  @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,40px)} }
+  @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,-30px)} }
+  @keyframes float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,25px)} }
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeUp   { from{opacity:0;transform:translateY(16px)}  to{opacity:1;transform:translateY(0)} }
   @keyframes fadeIn   { from{opacity:0} to{opacity:1} }
   @keyframes barGrow  { from{width:0!important} }
-  @keyframes pulse    { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.75)} }
-  @keyframes bounce   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+  @keyframes pulse    { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.7)} }
+  @keyframes bounce   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
   @keyframes shimmer  { 0%{background-position:200% center} 100%{background-position:-200% center} }
   @keyframes pieIn    { from{stroke-dasharray:0 565} }
   @keyframes tickerRun{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
-  @keyframes scanline { 0%{top:-100%} 100%{top:100%} }
 
   .container { max-width:1500px; margin:0 auto; padding:0 40px 90px; position:relative; z-index:1; }
 
   /* ── TOPBAR ── */
   .topbar {
-    background: rgba(7,13,20,0.97);
+    background: rgba(255,255,255,0.94);
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(16px);
     padding: 0 40px;
@@ -85,88 +92,92 @@
     height: 70px;
     position: sticky; top:0; z-index:200;
     animation: fadeDown 0.6s ease both;
+    box-shadow: 0 2px 20px var(--shadow-l);
   }
 
-  /* ── SVG LOGO (faithfully recreated from uploaded image) ── */
   .logo-wrap { display:flex; align-items:center; gap:0; text-decoration:none; }
 
-  /* ── TOPBAR RIGHT ── */
   .topbar-right { display:flex; align-items:center; gap:20px; }
   .topbar-tag { font-size:10px; letter-spacing:3px; color:var(--muted); text-transform:uppercase; }
   .live-badge {
     display:flex; align-items:center; gap:7px;
-    background:rgba(40,130,220,0.1); border:1px solid rgba(40,130,220,0.3);
-    color:var(--brand-blue); font-size:9px; letter-spacing:3px;
+    background:var(--brand-xl); border:1px solid rgba(40,130,220,0.25);
+    color:var(--brand-d); font-size:9px; letter-spacing:3px;
     padding:6px 14px; border-radius:20px; text-transform:uppercase;
   }
   .live-badge::before {
-    content:''; width:6px; height:6px; background:var(--brand-blue);
+    content:''; width:6px; height:6px; background:var(--brand);
     border-radius:50%; animation:pulse 1.8s ease-in-out infinite;
-    box-shadow:0 0 8px var(--brand-blue);
+    box-shadow:0 0 6px var(--brand);
   }
 
   /* ── HERO ── */
   .hero {
-    padding: 48px 0 32px;
+    padding: 46px 0 30px;
     border-bottom: 1px solid var(--border-d);
-    margin-bottom: 30px;
+    margin-bottom: 28px;
     animation: fadeDown 0.7s 0.1s ease both;
   }
   .hero-eye { font-size:10px; letter-spacing:5px; color:var(--muted); text-transform:uppercase; margin-bottom:12px; }
   .hero-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(48px,6vw,80px);
+    font-size: clamp(44px,5.5vw,76px);
     letter-spacing: 6px; line-height: 0.92;
-    color: var(--text); margin-bottom:10px;
+    color: var(--navy); margin-bottom:10px;
   }
   .hero-title span {
-    background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-l), var(--brand-blue));
+    background: linear-gradient(135deg, var(--brand), var(--brand-l), var(--brand));
     background-size: 200% auto;
     -webkit-background-clip:text; -webkit-text-fill-color:transparent;
     background-clip:text; animation:shimmer 4s linear infinite;
   }
-  .hero-sub { font-size:12px; color:var(--muted); letter-spacing:1px; }
+  .hero-sub { font-size:12px; color:var(--muted); letter-spacing:0.8px; }
 
   /* ── KPI ROW ── */
-  .kpi-row { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-bottom:28px; }
+  .kpi-row { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:26px; }
   .kpi-card {
-    background:var(--surface); border:1px solid var(--border-d);
-    border-radius:14px; padding:22px 20px;
-    position:relative; overflow:hidden;
-    animation:fadeUp 0.7s ease both;
-    transition:transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    background: var(--surface);
+    border: 1px solid var(--border-d);
+    border-radius: 14px; padding: 22px 20px;
+    position: relative; overflow: hidden;
+    animation: fadeUp 0.7s ease both;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 2px 12px var(--shadow-l);
   }
   .kpi-card:hover {
-    transform:translateY(-4px);
-    border-color:var(--border);
-    box-shadow:0 16px 50px rgba(0,0,0,0.6), 0 0 30px rgba(40,130,220,0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px var(--shadow);
+    border-color: var(--border);
   }
-  .kpi-card::after {
-    content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
-    background:linear-gradient(90deg,transparent,var(--kc,var(--brand-blue)),transparent);
+  .kpi-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background: linear-gradient(90deg, transparent, var(--kc, var(--brand)), transparent);
+    opacity: 0.8;
   }
-  .kpi-card:nth-child(1){--kc:var(--brand-blue);animation-delay:.10s}
-  .kpi-card:nth-child(2){--kc:var(--brand-blue-l);animation-delay:.20s}
+  .kpi-card:nth-child(1){--kc:var(--brand);animation-delay:.10s}
+  .kpi-card:nth-child(2){--kc:var(--brand-l);animation-delay:.20s}
   .kpi-card:nth-child(3){--kc:var(--green);animation-delay:.30s}
   .kpi-card:nth-child(4){--kc:var(--red);animation-delay:.40s}
-  .kpi-card:nth-child(5){--kc:var(--brand-blue);animation-delay:.50s}
+  .kpi-card:nth-child(5){--kc:var(--brand-d);animation-delay:.50s}
   .kpi-icon  { font-size:22px; margin-bottom:12px; display:block; animation:bounce 2.5s ease-in-out infinite; }
   .kpi-card:nth-child(2) .kpi-icon{animation-delay:.4s}
   .kpi-card:nth-child(3) .kpi-icon{animation-delay:.8s}
   .kpi-card:nth-child(4) .kpi-icon{animation-delay:1.2s}
   .kpi-card:nth-child(5) .kpi-icon{animation-delay:1.6s}
   .kpi-label { font-size:9px; letter-spacing:3px; color:var(--muted); text-transform:uppercase; margin-bottom:6px; }
-  .kpi-value { font-family:'Bebas Neue',sans-serif; font-size:36px; letter-spacing:2px; line-height:1; color:var(--kc,var(--brand-blue)); }
-  .kpi-sub   { font-size:10px; color:var(--muted); margin-top:5px; }
+  .kpi-value { font-family:'Bebas Neue',sans-serif; font-size:36px; letter-spacing:2px; line-height:1; color:var(--kc,var(--brand)); }
+  .kpi-sub   { font-size:10px; color:var(--muted); margin-top:4px; }
 
   /* ── MAIN GRID ── */
-  .main-grid { display:grid; grid-template-columns:1fr 350px; gap:20px; margin-bottom:20px; }
+  .main-grid { display:grid; grid-template-columns:1fr 350px; gap:18px; margin-bottom:18px; }
 
   /* ── PANELS ── */
   .panel {
-    background:var(--surface); border:1px solid var(--border-d);
-    border-radius:16px; padding:26px;
-    animation:fadeUp 0.7s ease both;
+    background: var(--surface);
+    border: 1px solid var(--border-d);
+    border-radius: 16px; padding: 26px;
+    animation: fadeUp 0.7s ease both;
+    box-shadow: 0 2px 16px var(--shadow-l);
   }
   .panel-title {
     font-size:9px; letter-spacing:4px; color:var(--muted);
@@ -182,13 +193,13 @@
     font-size:9px; letter-spacing:2px; padding:5px 13px;
     border-radius:20px; text-transform:uppercase;
     cursor:pointer; border:1px solid var(--border-d);
-    background:transparent; color:var(--muted);
+    background:var(--surface2); color:var(--muted);
     transition:all 0.2s ease;
   }
-  .filter-btn:hover { border-color:var(--brand-blue); color:var(--brand-blue); }
-  .filter-btn.active { background:rgba(40,130,220,0.1); border-color:var(--border); color:var(--brand-blue); }
-  .filter-btn.f-exit.active { background:rgba(61,214,140,0.08); border-color:rgba(61,214,140,0.3); color:var(--green); }
-  .filter-btn.f-fail.active { background:rgba(224,85,85,0.08);  border-color:rgba(224,85,85,0.3);  color:var(--red); }
+  .filter-btn:hover { border-color:var(--brand); color:var(--brand); background:var(--brand-xl); }
+  .filter-btn.active { background:var(--brand-xl); border-color:rgba(40,130,220,0.3); color:var(--brand-d); }
+  .filter-btn.f-exit.active { background:var(--green-l); border-color:rgba(26,158,106,0.3); color:var(--green); }
+  .filter-btn.f-fail.active { background:var(--red-l);   border-color:rgba(217,64,64,0.3);  color:var(--red); }
 
   /* ── TABLE ── */
   .portfolio-panel { animation-delay:.28s; }
@@ -212,115 +223,126 @@
     animation:fadeIn 0.4s ease both;
     cursor:default;
   }
-  .portfolio-item:hover { background:rgba(40,130,220,0.05); }
+  .portfolio-item:hover { background:var(--surface2); }
   .portfolio-item.hidden { display:none; }
 
   .startup-icon { width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0; }
   .startup-name { font-family:'Fraunces',serif; font-size:13px; font-weight:700; color:var(--text); line-height:1; }
   .startup-date { font-size:10px; color:var(--muted); margin-top:2px; }
 
-  .col-r { text-align:right; }
-  .amt  { font-size:11px; color:var(--off); font-weight:500; }
-  .eq   { font-size:12px; color:var(--brand-blue-l); }
-  .tir-v{ font-family:'Bebas Neue',sans-serif; font-size:15px; color:var(--green); letter-spacing:1px; }
-  .tir-n{ font-size:11px; color:var(--muted); }
+  .col-r  { text-align:right; }
+  .amt    { font-size:11px; color:var(--text-m); font-weight:500; }
+  .eq     { font-size:12px; color:var(--brand-d); }
+  .tir-v  { font-family:'Bebas Neue',sans-serif; font-size:15px; color:var(--green); letter-spacing:1px; }
+  .tir-n  { font-size:11px; color:var(--muted); }
 
   .bar-wrap { display:flex; flex-direction:column; align-items:flex-end; gap:3px; }
   .pct-lbl  { font-size:10px; color:var(--muted); }
-  .bar-bg   { width:100%; height:3px; background:rgba(40,130,220,0.1); border-radius:3px; overflow:hidden; }
+  .bar-bg   { width:100%; height:3px; background:var(--bg2); border-radius:3px; overflow:hidden; }
   .bar-fill { height:100%; border-radius:3px; animation:barGrow 1.4s ease both; }
 
   .badge { font-size:8px; letter-spacing:1.5px; padding:3px 7px; border-radius:20px; text-transform:uppercase; font-weight:500; white-space:nowrap; display:inline-block; text-align:center; width:100%; }
-  .b-active { background:rgba(61,214,140,0.1);  color:var(--green); border:1px solid rgba(61,214,140,0.25); }
-  .b-exit   { background:rgba(40,130,220,0.12); color:var(--brand-blue-l); border:1px solid rgba(90,175,240,0.3); }
-  .b-fail   { background:rgba(224,85,85,0.1);   color:var(--red);   border:1px solid rgba(224,85,85,0.25); }
+  .b-active { background:var(--green-b);  color:var(--green); border:1px solid rgba(26,158,106,0.2); }
+  .b-exit   { background:var(--brand-xl); color:var(--brand-d); border:1px solid rgba(40,130,220,0.25); }
+  .b-fail   { background:var(--red-b);    color:var(--red);   border:1px solid rgba(217,64,64,0.2); }
 
   .web-link {
     display:flex; align-items:center; justify-content:center;
     width:28px; height:28px; border-radius:7px;
-    background:rgba(40,130,220,0.06); border:1px solid var(--border-d);
-    color:var(--muted); font-size:12px; text-decoration:none;
+    background:var(--brand-xl); border:1px solid var(--border-d);
+    color:var(--brand); font-size:12px; text-decoration:none;
     transition:all 0.2s ease; margin:0 auto;
   }
-  .web-link:hover { background:rgba(40,130,220,0.18); color:var(--brand-blue-l); border-color:var(--border); }
-  .no-link { width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:var(--border-d);font-size:14px;margin:0 auto; }
+  .web-link:hover { background:var(--brand); color:#fff; border-color:var(--brand); }
+  .no-link { width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:var(--border);font-size:14px;margin:0 auto; }
 
   /* ── RIGHT COLUMN ── */
-  .right-col { display:flex; flex-direction:column; gap:18px; }
+  .right-col { display:flex; flex-direction:column; gap:16px; }
 
+  /* TIR PANEL */
   .tir-panel {
-    background: linear-gradient(140deg, var(--surface), #071a0e);
-    border:1px solid rgba(61,214,140,0.2);
+    background: linear-gradient(140deg, #f0faf5, #e6f7f1);
+    border:1px solid rgba(26,158,106,0.2);
     position:relative; overflow:hidden; animation-delay:.32s;
+    box-shadow: 0 2px 16px rgba(26,158,106,0.06);
   }
-  .tir-panel::after {
-    content:''; position:absolute; bottom:-20px; right:-20px;
-    width:110px; height:110px; background:var(--green);
-    border-radius:50%; filter:blur(65px); opacity:0.1; pointer-events:none;
+  .tir-panel::before {
+    content:''; position:absolute; top:-40px; right:-40px;
+    width:130px; height:130px; background:var(--green);
+    border-radius:50%; filter:blur(60px); opacity:0.12; pointer-events:none;
   }
-  .tir-num { font-family:'Bebas Neue',sans-serif; font-size:64px; color:var(--green); line-height:1; letter-spacing:2px; text-shadow:0 0 40px rgba(61,214,140,0.25); }
+  .tir-num { font-family:'Bebas Neue',sans-serif; font-size:64px; color:var(--green); line-height:1; letter-spacing:2px; }
   .tir-pct { font-size:22px; }
-  .tir-co  { font-family:'Fraunces',serif; font-size:14px; font-weight:700; color:var(--off); margin-top:3px; }
+  .tir-co  { font-family:'Fraunces',serif; font-size:14px; font-weight:700; color:var(--text); margin-top:3px; }
   .tir-lbl { font-size:9px; letter-spacing:3px; color:var(--muted); text-transform:uppercase; margin-top:2px; }
-  .tir-note{ font-size:10px; color:var(--muted); margin-top:10px; border-top:1px solid var(--border-d); padding-top:10px; line-height:1.6; }
+  .tir-note{ font-size:10px; color:var(--muted); margin-top:10px; border-top:1px solid rgba(26,158,106,0.15); padding-top:10px; line-height:1.6; }
 
+  /* PIE CHART */
   .chart-panel { animation-delay:.4s; }
   .pie-wrap { position:relative; width:170px; height:170px; margin:14px auto; }
   .pie-svg  { transform:rotate(-90deg); }
   .pie-center { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
-  .pie-cv  { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--brand-blue); letter-spacing:2px; }
-  .pie-cl  { font-size:8px; color:var(--muted); letter-spacing:2px; text-transform:uppercase; }
-  .legend  { display:flex; flex-direction:column; gap:6px; margin-top:12px; }
+  .pie-cv   { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--brand); letter-spacing:2px; }
+  .pie-cl   { font-size:8px; color:var(--muted); letter-spacing:2px; text-transform:uppercase; }
+  .legend   { display:flex; flex-direction:column; gap:6px; margin-top:12px; }
   .legend-item { display:flex; align-items:center; gap:9px; font-size:10px; color:var(--muted); }
   .legend-dot  { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
   .legend-lbl  { flex:1; }
-  .legend-val  { color:var(--off); font-size:10px; }
+  .legend-val  { color:var(--text-m); font-size:10px; }
 
+  /* YEAR BARS */
   .years-panel { animation-delay:.48s; }
   .ygroup { margin-bottom:11px; }
-  .ylabel { font-family:'Bebas Neue',sans-serif; font-size:18px; color:var(--brand-blue); opacity:.8; margin-bottom:5px; letter-spacing:3px; }
-  .ybar   { height:24px; background:rgba(40,130,220,0.05); border-radius:5px; position:relative; overflow:hidden; display:flex; align-items:center; padding:0 10px; }
+  .ylabel { font-family:'Bebas Neue',sans-serif; font-size:18px; color:var(--brand); opacity:.85; margin-bottom:5px; letter-spacing:3px; }
+  .ybar   { height:24px; background:var(--bg2); border-radius:5px; position:relative; overflow:hidden; display:flex; align-items:center; padding:0 10px; }
   .ybar-fill { position:absolute; left:0; top:0; bottom:0; border-radius:5px; animation:barGrow 1.4s ease both; }
-  .ybar-txt  { position:relative; font-size:10px; color:var(--off); z-index:1; }
+  .ybar-txt  { position:relative; font-size:10px; color:var(--text-m); z-index:1; }
 
-  .bottom-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; animation:fadeUp 0.7s .5s ease both; }
+  /* BOTTOM STATS */
+  .bottom-row { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; animation:fadeUp 0.7s .5s ease both; }
   .stat-card {
     background:var(--surface); border:1px solid var(--border-d);
     border-radius:14px; padding:22px 18px; text-align:center;
     position:relative; overflow:hidden;
     transition:transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 2px 12px var(--shadow-l);
   }
-  .stat-card:hover { transform:translateY(-3px); box-shadow:0 14px 50px rgba(0,0,0,0.5); }
-  .stat-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--sc,var(--brand-blue)),transparent); }
-  .stat-card:nth-child(1){--sc:var(--brand-blue)}
-  .stat-card:nth-child(2){--sc:var(--brand-blue-l)}
+  .stat-card:hover { transform:translateY(-3px); box-shadow:0 10px 36px var(--shadow); }
+  .stat-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg,transparent,var(--sc,var(--brand)),transparent); opacity:0.7;
+  }
+  .stat-card:nth-child(1){--sc:var(--brand)}
+  .stat-card:nth-child(2){--sc:var(--brand-l)}
   .stat-card:nth-child(3){--sc:var(--green)}
   .stat-card:nth-child(4){--sc:var(--red)}
   .stat-emoji { font-size:28px; margin-bottom:10px; display:block; animation:bounce 2s ease-in-out infinite; }
   .stat-card:nth-child(2) .stat-emoji{animation-delay:.35s}
   .stat-card:nth-child(3) .stat-emoji{animation-delay:.7s}
   .stat-card:nth-child(4) .stat-emoji{animation-delay:1.05s}
-  .stat-big { font-family:'Bebas Neue',sans-serif; font-size:36px; letter-spacing:2px; line-height:1; margin-bottom:5px; }
+  .stat-big { font-family:'Bebas Neue',sans-serif; font-size:34px; letter-spacing:2px; line-height:1; margin-bottom:5px; }
   .stat-lbl { font-size:9px; letter-spacing:2px; color:var(--muted); text-transform:uppercase; }
   .stat-sub { font-size:10px; color:var(--muted); margin-top:4px; }
 
-  .blue-line { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--brand-blue),transparent); opacity:0.2; margin:24px 0; }
+  .divider-line { width:100%; height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); margin:22px 0; }
 
+  /* ── TICKER ── */
   .ticker {
     position:fixed; bottom:0; left:0; right:0; z-index:300;
-    background:rgba(7,13,20,0.98); border-top:1px solid var(--border);
+    background:rgba(255,255,255,0.97); border-top:1px solid var(--border);
     padding:9px 0; overflow:hidden; backdrop-filter:blur(14px);
+    box-shadow: 0 -2px 20px var(--shadow-l);
   }
   .ticker-inner { display:flex; gap:55px; animation:tickerRun 55s linear infinite; white-space:nowrap; }
   .t-item { font-size:10px; letter-spacing:1.5px; display:flex; align-items:center; gap:9px; color:var(--muted); }
-  .t-name { color:var(--brand-blue); font-weight:500; letter-spacing:2px; }
-  .t-eq   { color:var(--brand-blue-l); }
+  .t-name { color:var(--brand-d); font-weight:500; letter-spacing:2px; }
+  .t-eq   { color:var(--brand); }
   .t-tir  { color:var(--green); font-weight:500; }
-  .t-sep  { color:var(--border-d); }
+  .t-sep  { color:var(--border); }
 
   ::-webkit-scrollbar { width:5px; }
   ::-webkit-scrollbar-track { background:var(--bg); }
-  ::-webkit-scrollbar-thumb { background:var(--brand-navy); border-radius:3px; }
+  ::-webkit-scrollbar-thumb { background:var(--brand-xl); border-radius:3px; }
 
   @media(max-width:1200px){ .main-grid{grid-template-columns:1fr} .kpi-row{grid-template-columns:repeat(3,1fr)} .bottom-row{grid-template-columns:repeat(2,1fr)} }
   @media(max-width:768px) { .kpi-row{grid-template-columns:repeat(2,1fr)} .container{padding:0 16px 90px} .topbar{padding:0 16px} }
@@ -332,30 +354,23 @@
 <div class="orb orb-2"></div>
 <div class="orb orb-3"></div>
 
-<!-- TOPBAR with faithful SVG logo recreation -->
+<!-- TOPBAR -->
 <nav class="topbar">
   <div class="logo-wrap">
-    <!--
-      Logo recreated from uploaded image:
-      - Geometric "A" in bright blue #2882dc with triangular negative space
-      - "ANGELCLUB" wordmark in deep navy #1d4570
-    -->
-    <svg width="180" height="44" viewBox="0 0 180 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- "A" icon: outer triangle -->
-      <polygon points="22,4 40,38 4,38" fill="#2882dc"/>
-      <!-- "A" icon: inner negative triangle (white cutout) -->
-      <polygon points="22,16 30,34 14,34" fill="#070d14"/>
-      <!-- "A" icon: crossbar -->
-      <rect x="13" y="26" width="18" height="4" fill="#2882dc"/>
-      <!-- Wordmark "ANGELCLUB" -->
-      <text x="48" y="30"
-        font-family="'DM Mono', 'Courier New', monospace"
-        font-size="18"
+    <svg width="185" height="44" viewBox="0 0 185 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Geometric "A" — exact recreation from uploaded logo -->
+      <polygon points="22,3 41,40 3,40" fill="#2882dc"/>
+      <polygon points="22,16 31,36 13,36" fill="#f0f4f8"/>
+      <rect x="12" y="27" width="20" height="4.5" fill="#2882dc"/>
+      <!-- Wordmark -->
+      <text x="50" y="29"
+        font-family="'DM Mono', monospace"
+        font-size="18.5"
         font-weight="500"
-        letter-spacing="3"
+        letter-spacing="2.5"
         fill="#1d4570">ANGELCLUB</text>
-      <!-- Thin underline accent matching brand -->
-      <line x1="48" y1="36" x2="172" y2="36" stroke="#2882dc" stroke-width="0.8" opacity="0.5"/>
+      <!-- Brand underline -->
+      <line x1="50" y1="35.5" x2="176" y2="35.5" stroke="#2882dc" stroke-width="1" opacity="0.35"/>
     </svg>
   </div>
 
@@ -367,12 +382,14 @@
 
 <div class="container">
 
+  <!-- HERO -->
   <div class="hero">
     <div class="hero-eye">Club privado de inversión · Informe de participadas</div>
     <h1 class="hero-title">Portfolio<br><span>Dashboard</span></h1>
     <p class="hero-sub">33 participadas · 3.452.292€ capital desplegado · TIR máx. 74%</p>
   </div>
 
+  <!-- KPIs -->
   <div class="kpi-row">
     <div class="kpi-card">
       <span class="kpi-icon">💼</span>
@@ -383,7 +400,7 @@
     <div class="kpi-card">
       <span class="kpi-icon">🚀</span>
       <div class="kpi-label">Activas</div>
-      <div class="kpi-value" style="color:var(--brand-blue-l)">29</div>
+      <div class="kpi-value" style="color:var(--brand-l)">29</div>
       <div class="kpi-sub">En cartera actualmente</div>
     </div>
     <div class="kpi-card">
@@ -401,11 +418,12 @@
     <div class="kpi-card">
       <span class="kpi-icon">📈</span>
       <div class="kpi-label">Mejor TIR</div>
-      <div class="kpi-value">74%</div>
+      <div class="kpi-value" style="color:var(--brand-d)">74%</div>
       <div class="kpi-sub">Mailtrack · EXIT</div>
     </div>
   </div>
 
+  <!-- MAIN GRID -->
   <div class="main-grid">
 
     <div class="panel portfolio-panel">
@@ -436,6 +454,7 @@
 
     <div class="right-col">
 
+      <!-- TIR -->
       <div class="panel tir-panel">
         <div class="panel-title">Mejor retorno registrado</div>
         <div class="tir-num">74<span class="tir-pct">%</span></div>
@@ -444,18 +463,19 @@
         <div class="tir-note">Única operación con tasa interna de retorno registrada. Desinversión completada con retorno positivo.</div>
       </div>
 
+      <!-- PIE -->
       <div class="panel chart-panel">
         <div class="panel-title">Distribución por periodo</div>
         <div class="pie-wrap">
           <svg class="pie-svg" width="170" height="170" viewBox="0 0 170 170">
-            <circle r="75" cx="85" cy="85" fill="none" stroke="#112540" stroke-width="28"/>
+            <circle r="75" cx="85" cy="85" fill="none" stroke="#e8eef5" stroke-width="28"/>
             <circle r="75" cx="85" cy="85" fill="none" stroke="#2882dc" stroke-width="28"
               stroke-dasharray="134 337" stroke-dashoffset="0" style="animation:pieIn 1.4s ease both;"/>
             <circle r="75" cx="85" cy="85" fill="none" stroke="#5aaff0" stroke-width="28"
               stroke-dasharray="79 392" stroke-dashoffset="-134" style="animation:pieIn 1.4s .15s ease both;"/>
             <circle r="75" cx="85" cy="85" fill="none" stroke="#1a6bb8" stroke-width="28"
               stroke-dasharray="27 444" stroke-dashoffset="-213" style="animation:pieIn 1.4s .3s ease both;"/>
-            <circle r="75" cx="85" cy="85" fill="none" stroke="#3dd68c" stroke-width="28"
+            <circle r="75" cx="85" cy="85" fill="none" stroke="#1a9e6a" stroke-width="28"
               stroke-dasharray="47 424" stroke-dashoffset="-240" style="animation:pieIn 1.4s .45s ease both;"/>
             <circle r="75" cx="85" cy="85" fill="none" stroke="#9b6bd4" stroke-width="28"
               stroke-dasharray="182 289" stroke-dashoffset="-287" style="animation:pieIn 1.4s .6s ease both;"/>
@@ -469,45 +489,46 @@
           <div class="legend-item"><div class="legend-dot" style="background:#2882dc"></div><span class="legend-lbl">2017</span><span class="legend-val">983.300€ · 28%</span></div>
           <div class="legend-item"><div class="legend-dot" style="background:#5aaff0"></div><span class="legend-lbl">2018</span><span class="legend-val">582.388€ · 17%</span></div>
           <div class="legend-item"><div class="legend-dot" style="background:#1a6bb8"></div><span class="legend-lbl">2019</span><span class="legend-val">200.800€ · 6%</span></div>
-          <div class="legend-item"><div class="legend-dot" style="background:#3dd68c"></div><span class="legend-lbl">2020</span><span class="legend-val">349.389€ · 10%</span></div>
+          <div class="legend-item"><div class="legend-dot" style="background:#1a9e6a"></div><span class="legend-lbl">2020</span><span class="legend-val">349.389€ · 10%</span></div>
           <div class="legend-item"><div class="legend-dot" style="background:#9b6bd4"></div><span class="legend-lbl">Sin fecha</span><span class="legend-val">1.336.415€ · 39%</span></div>
         </div>
       </div>
 
+      <!-- YEAR BARS -->
       <div class="panel years-panel">
         <div class="panel-title">Capital por periodo</div>
         <div class="ygroup">
           <div class="ylabel">Sin fecha</div>
           <div class="ybar">
-            <div class="ybar-fill" style="width:100%;background:linear-gradient(90deg,rgba(155,107,212,0.45),rgba(155,107,212,0.08))"></div>
+            <div class="ybar-fill" style="width:100%;background:linear-gradient(90deg,rgba(155,107,212,0.35),rgba(155,107,212,0.06))"></div>
             <span class="ybar-txt">1.336.415€ · 11 ops</span>
           </div>
         </div>
         <div class="ygroup">
           <div class="ylabel">2017</div>
           <div class="ybar">
-            <div class="ybar-fill" style="width:73%;background:linear-gradient(90deg,rgba(40,130,220,0.5),rgba(40,130,220,0.08));animation-delay:.1s"></div>
+            <div class="ybar-fill" style="width:73%;background:linear-gradient(90deg,rgba(40,130,220,0.35),rgba(40,130,220,0.06));animation-delay:.1s"></div>
             <span class="ybar-txt">983.300€ · 7 ops</span>
           </div>
         </div>
         <div class="ygroup">
           <div class="ylabel">2018</div>
           <div class="ybar">
-            <div class="ybar-fill" style="width:43%;background:linear-gradient(90deg,rgba(90,175,240,0.5),rgba(90,175,240,0.08));animation-delay:.2s"></div>
+            <div class="ybar-fill" style="width:43%;background:linear-gradient(90deg,rgba(90,175,240,0.4),rgba(90,175,240,0.06));animation-delay:.2s"></div>
             <span class="ybar-txt">582.388€ · 8 ops</span>
           </div>
         </div>
         <div class="ygroup">
           <div class="ylabel">2020</div>
           <div class="ybar">
-            <div class="ybar-fill" style="width:26%;background:linear-gradient(90deg,rgba(61,214,140,0.45),rgba(61,214,140,0.08));animation-delay:.3s"></div>
+            <div class="ybar-fill" style="width:26%;background:linear-gradient(90deg,rgba(26,158,106,0.35),rgba(26,158,106,0.06));animation-delay:.3s"></div>
             <span class="ybar-txt">349.389€ · 4 ops</span>
           </div>
         </div>
         <div class="ygroup">
           <div class="ylabel">2019</div>
           <div class="ybar">
-            <div class="ybar-fill" style="width:15%;background:linear-gradient(90deg,rgba(26,107,184,0.5),rgba(26,107,184,0.1));animation-delay:.4s"></div>
+            <div class="ybar-fill" style="width:15%;background:linear-gradient(90deg,rgba(26,107,184,0.4),rgba(26,107,184,0.06));animation-delay:.4s"></div>
             <span class="ybar-txt">200.800€ · 4 ops</span>
           </div>
         </div>
@@ -516,18 +537,19 @@
     </div>
   </div>
 
-  <div class="blue-line"></div>
+  <div class="divider-line"></div>
 
+  <!-- BOTTOM STATS -->
   <div class="bottom-row">
     <div class="stat-card">
       <span class="stat-emoji">🎯</span>
-      <div class="stat-big" style="color:var(--brand-blue)">33</div>
+      <div class="stat-big" style="color:var(--brand)">33</div>
       <div class="stat-lbl">Total participadas</div>
       <div class="stat-sub">+11 nuevas incorporadas</div>
     </div>
     <div class="stat-card">
       <span class="stat-emoji">💼</span>
-      <div class="stat-big" style="color:var(--brand-blue-l)">3.45M€</div>
+      <div class="stat-big" style="color:var(--brand-l)">3.45M€</div>
       <div class="stat-lbl">Capital desplegado</div>
       <div class="stat-sub">+1.28M€ vs anterior</div>
     </div>
@@ -547,45 +569,46 @@
 
 </div>
 
+<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner" id="ticker-inner"></div>
 </div>
 
 <script>
 const investments = [
-  { name:'BADI',           date:'Jun 2017', amount:81700,  equity:'0%',  tir:null, emoji:'🏠', status:'active', color:'#2882dc', web:'https://badi.com/es/',                           group:'dated' },
-  { name:'MAILTRACK',      date:'Jul 2017', amount:104000, equity:'0%',  tir:74,   emoji:'📧', status:'exit',   color:'#3dd68c', web:'https://mailtrack.email/',                       group:'dated' },
-  { name:'VITCORD',        date:'Ago 2017', amount:107400, equity:'1%',  tir:null, emoji:'🎵', status:'active', color:'#2882dc', web:null,                                             group:'dated' },
-  { name:'CABIFY',         date:'Oct 2017', amount:340000, equity:'1%',  tir:null, emoji:'🚗', status:'active', color:'#2882dc', web:'https://cabify.com/es/prensa',                   group:'dated' },
-  { name:'GOIN',           date:'Dic 2017', amount:131200, equity:'2%',  tir:null, emoji:'💸', status:'active', color:'#2882dc', web:'https://www.goin.app/',                          group:'dated' },
-  { name:'COVERFY',        date:'Dic 2017', amount:147000, equity:'3%',  tir:null, emoji:'🛡️', status:'active', color:'#2882dc', web:'https://www.coverfy.com/',                       group:'dated' },
-  { name:'HOUSERS',        date:'Dic 2017', amount:72000,  equity:'1%',  tir:null, emoji:'🏘️', status:'active', color:'#2882dc', web:'https://www.housers.com/es/',                    group:'dated' },
-  { name:'KASITOKO',       date:'Ene 2018', amount:104700, equity:'3%',  tir:null, emoji:'❌', status:'fail',   color:'#e05555', web:'http://kasitoko.com/',                           group:'dated' },
-  { name:'CHICISIMO',      date:'Feb 2018', amount:141000, equity:'3%',  tir:null, emoji:'❌', status:'fail',   color:'#e05555', web:'https://chicisimo.com/',                         group:'dated' },
-  { name:'CHARPLANET',     date:'May 2018', amount:62500,  equity:'3%',  tir:null, emoji:'🌍', status:'active', color:'#5aaff0', web:'https://www.nisgo.com/es/',                      group:'dated' },
-  { name:'MYTRIPLEA',      date:'Jul 2018', amount:71240,  equity:'2%',  tir:null, emoji:'💰', status:'active', color:'#5aaff0', web:'https://mytriplea.com/',                         group:'dated' },
-  { name:'ORBITALADS',     date:'Nov 2018', amount:85848,  equity:'3%',  tir:null, emoji:'🛸', status:'active', color:'#5aaff0', web:'https://www.orbitalads.com/',                   group:'dated' },
-  { name:'GOMAPI',         date:'Dic 2018', amount:91600,  equity:'4%',  tir:null, emoji:'🗺️', status:'active', color:'#5aaff0', web:'http://gomapi.io/',                              group:'dated' },
-  { name:'GOIN II',        date:'Dic 2018', amount:25500,  equity:'3%',  tir:null, emoji:'💸', status:'active', color:'#5aaff0', web:null,                                             group:'dated' },
-  { name:'ACCURATE',       date:'Feb 2019', amount:87100,  equity:'3%',  tir:null, emoji:'🎯', status:'active', color:'#1a6bb8', web:'https://atranslations.com/',                     group:'dated' },
-  { name:'ACCURATE II',    date:'Feb 2019', amount:20000,  equity:'2%',  tir:null, emoji:'🎯', status:'active', color:'#1a6bb8', web:null,                                             group:'dated' },
-  { name:'LOBSTER',        date:'May 2019', amount:46700,  equity:'14%', tir:null, emoji:'🦞', status:'fail',   color:'#e05555', web:'https://projectlobster.com/',                   group:'dated' },
-  { name:'MYHAIR',         date:'Jul 2019', amount:47000,  equity:'2%',  tir:null, emoji:'💇', status:'active', color:'#1a6bb8', web:'https://www.myhair.ai/es',                      group:'dated' },
-  { name:'MOX',            date:'Mar 2020', amount:74925,  equity:'3%',  tir:null, emoji:'⚡', status:'active', color:'#3dd68c', web:'https://www.linkedin.com/company/grupo-mox/',    group:'dated' },
-  { name:'KASAZ',          date:'Abr 2020', amount:81955,  equity:'4%',  tir:null, emoji:'🏡', status:'active', color:'#3dd68c', web:'https://www.kasaz.es/',                         group:'dated' },
-  { name:'ONCOHEROES',     date:'May 2020', amount:49765,  equity:'3%',  tir:null, emoji:'🧬', status:'active', color:'#3dd68c', web:'https://www.oncoheroes.com/',                   group:'dated' },
-  { name:'BNEXT',          date:'Jul 2020', amount:142744, equity:'3%',  tir:null, emoji:'💳', status:'active', color:'#3dd68c', web:'https://bnext.es/b2b/es',                       group:'dated' },
-  { name:'ROAMS',          date:'—', amount:46000,  equity:'4%', tir:null, emoji:'📡', status:'active', color:'#9b6bd4', web:null, group:'new' },
-  { name:'GREENDATACHAIN', date:'—', amount:113550, equity:'3%', tir:null, emoji:'🌿', status:'active', color:'#9b6bd4', web:null, group:'new' },
-  { name:'EVIL ZEPPELING', date:'—', amount:70000,  equity:'1%', tir:null, emoji:'🎸', status:'active', color:'#9b6bd4', web:null, group:'new' },
-  { name:'LUDA',           date:'—', amount:178000, equity:'2%', tir:null, emoji:'🔊', status:'active', color:'#9b6bd4', web:null, group:'new' },
-  { name:'ZAPIENS',        date:'—', amount:232000, equity:'5%', tir:null, emoji:'🧠', status:'active', color:'#9b6bd4', web:null, group:'new' },
-  { name:'CLAPS',          date:'—', amount:202000, equity:'5%', tir:null, emoji:'👏', status:'active', color:'#9b6bd4', web:null, group:'new' },
-  { name:'WELLBEINGOS',    date:'—', amount:89000,  equity:'4%', tir:null, emoji:'🧘', status:'active', color:'#9b6bd4', web:null, group:'new' },
-  { name:'EDIT ORG',       date:'—', amount:64865,  equity:'3%', tir:null, emoji:'✏️', status:'active', color:'#9b6bd4', web:null, group:'new' },
-  { name:'GENIALLY',       date:'—', amount:196000, equity:'5%', tir:null, emoji:'✨', status:'active', color:'#9b6bd4', web:null, group:'new' },
-  { name:'ALTERHOME',      date:'—', amount:102000, equity:'6%', tir:null, emoji:'🏠', status:'active', color:'#9b6bd4', web:null, group:'new' },
-  { name:'FROGED',         date:'—', amount:43000,  equity:'4%', tir:null, emoji:'🔧', status:'active', color:'#9b6bd4', web:null, group:'new' },
+  { name:'BADI',           date:'Jun 2017', amount:81700,  equity:'0%',  tir:null, emoji:'🏠', status:'active', color:'#2882dc', web:'https://badi.com/es/',                        group:'dated' },
+  { name:'MAILTRACK',      date:'Jul 2017', amount:104000, equity:'0%',  tir:74,   emoji:'📧', status:'exit',   color:'#1a9e6a', web:'https://mailtrack.email/',                    group:'dated' },
+  { name:'VITCORD',        date:'Ago 2017', amount:107400, equity:'1%',  tir:null, emoji:'🎵', status:'active', color:'#2882dc', web:null,                                          group:'dated' },
+  { name:'CABIFY',         date:'Oct 2017', amount:340000, equity:'1%',  tir:null, emoji:'🚗', status:'active', color:'#2882dc', web:'https://cabify.com/es/prensa',                group:'dated' },
+  { name:'GOIN',           date:'Dic 2017', amount:131200, equity:'2%',  tir:null, emoji:'💸', status:'active', color:'#2882dc', web:'https://www.goin.app/',                       group:'dated' },
+  { name:'COVERFY',        date:'Dic 2017', amount:147000, equity:'3%',  tir:null, emoji:'🛡️', status:'active', color:'#2882dc', web:'https://www.coverfy.com/',                    group:'dated' },
+  { name:'HOUSERS',        date:'Dic 2017', amount:72000,  equity:'1%',  tir:null, emoji:'🏘️', status:'active', color:'#2882dc', web:'https://www.housers.com/es/',                 group:'dated' },
+  { name:'KASITOKO',       date:'Ene 2018', amount:104700, equity:'3%',  tir:null, emoji:'❌', status:'fail',   color:'#d94040', web:'http://kasitoko.com/',                        group:'dated' },
+  { name:'CHICISIMO',      date:'Feb 2018', amount:141000, equity:'3%',  tir:null, emoji:'❌', status:'fail',   color:'#d94040', web:'https://chicisimo.com/',                      group:'dated' },
+  { name:'CHARPLANET',     date:'May 2018', amount:62500,  equity:'3%',  tir:null, emoji:'🌍', status:'active', color:'#5aaff0', web:'https://www.nisgo.com/es/',                   group:'dated' },
+  { name:'MYTRIPLEA',      date:'Jul 2018', amount:71240,  equity:'2%',  tir:null, emoji:'💰', status:'active', color:'#5aaff0', web:'https://mytriplea.com/',                      group:'dated' },
+  { name:'ORBITALADS',     date:'Nov 2018', amount:85848,  equity:'3%',  tir:null, emoji:'🛸', status:'active', color:'#5aaff0', web:'https://www.orbitalads.com/',                group:'dated' },
+  { name:'GOMAPI',         date:'Dic 2018', amount:91600,  equity:'4%',  tir:null, emoji:'🗺️', status:'active', color:'#5aaff0', web:'http://gomapi.io/',                           group:'dated' },
+  { name:'GOIN II',        date:'Dic 2018', amount:25500,  equity:'3%',  tir:null, emoji:'💸', status:'active', color:'#5aaff0', web:null,                                          group:'dated' },
+  { name:'ACCURATE',       date:'Feb 2019', amount:87100,  equity:'3%',  tir:null, emoji:'🎯', status:'active', color:'#1a6bb8', web:'https://atranslations.com/',                  group:'dated' },
+  { name:'ACCURATE II',    date:'Feb 2019', amount:20000,  equity:'2%',  tir:null, emoji:'🎯', status:'active', color:'#1a6bb8', web:null,                                          group:'dated' },
+  { name:'LOBSTER',        date:'May 2019', amount:46700,  equity:'14%', tir:null, emoji:'🦞', status:'fail',   color:'#d94040', web:'https://projectlobster.com/',                group:'dated' },
+  { name:'MYHAIR',         date:'Jul 2019', amount:47000,  equity:'2%',  tir:null, emoji:'💇', status:'active', color:'#1a6bb8', web:'https://www.myhair.ai/es',                   group:'dated' },
+  { name:'MOX',            date:'Mar 2020', amount:74925,  equity:'3%',  tir:null, emoji:'⚡', status:'active', color:'#1a9e6a', web:'https://www.linkedin.com/company/grupo-mox/', group:'dated' },
+  { name:'KASAZ',          date:'Abr 2020', amount:81955,  equity:'4%',  tir:null, emoji:'🏡', status:'active', color:'#1a9e6a', web:'https://www.kasaz.es/',                      group:'dated' },
+  { name:'ONCOHEROES',     date:'May 2020', amount:49765,  equity:'3%',  tir:null, emoji:'🧬', status:'active', color:'#1a9e6a', web:'https://www.oncoheroes.com/',               group:'dated' },
+  { name:'BNEXT',          date:'Jul 2020', amount:142744, equity:'3%',  tir:null, emoji:'💳', status:'active', color:'#1a9e6a', web:'https://bnext.es/b2b/es',                    group:'dated' },
+  { name:'ROAMS',          date:'—', amount:46000,  equity:'4%', tir:null, emoji:'📡', status:'active', color:'#7c4dcc', web:null, group:'new' },
+  { name:'GREENDATACHAIN', date:'—', amount:113550, equity:'3%', tir:null, emoji:'🌿', status:'active', color:'#7c4dcc', web:null, group:'new' },
+  { name:'EVIL ZEPPELING', date:'—', amount:70000,  equity:'1%', tir:null, emoji:'🎸', status:'active', color:'#7c4dcc', web:null, group:'new' },
+  { name:'LUDA',           date:'—', amount:178000, equity:'2%', tir:null, emoji:'🔊', status:'active', color:'#7c4dcc', web:null, group:'new' },
+  { name:'ZAPIENS',        date:'—', amount:232000, equity:'5%', tir:null, emoji:'🧠', status:'active', color:'#7c4dcc', web:null, group:'new' },
+  { name:'CLAPS',          date:'—', amount:202000, equity:'5%', tir:null, emoji:'👏', status:'active', color:'#7c4dcc', web:null, group:'new' },
+  { name:'WELLBEINGOS',    date:'—', amount:89000,  equity:'4%', tir:null, emoji:'🧘', status:'active', color:'#7c4dcc', web:null, group:'new' },
+  { name:'EDIT ORG',       date:'—', amount:64865,  equity:'3%', tir:null, emoji:'✏️', status:'active', color:'#7c4dcc', web:null, group:'new' },
+  { name:'GENIALLY',       date:'—', amount:196000, equity:'5%', tir:null, emoji:'✨', status:'active', color:'#7c4dcc', web:null, group:'new' },
+  { name:'ALTERHOME',      date:'—', amount:102000, equity:'6%', tir:null, emoji:'🏠', status:'active', color:'#7c4dcc', web:null, group:'new' },
+  { name:'FROGED',         date:'—', amount:43000,  equity:'4%', tir:null, emoji:'🔧', status:'active', color:'#7c4dcc', web:null, group:'new' },
 ];
 
 const totalAmt = investments.reduce((s,i)=>s+i.amount,0);
@@ -598,13 +621,13 @@ investments.forEach((inv,idx)=>{
   const fmt    = inv.amount.toLocaleString('es-ES')+'€';
   const sCls   = inv.status==='exit'?'b-exit':inv.status==='fail'?'b-fail':'b-active';
   const sLbl   = inv.status==='exit'?'🏆 Exit':inv.status==='fail'?'✕ Fail':'● Activa';
-  const bg     = inv.color+'22';
+  const bg     = inv.color+'18';
   const tirHtml= inv.tir?`<span class="tir-v">${inv.tir}%</span>`:`<span class="tir-n">—</span>`;
   const webHtml= inv.web
     ?`<a class="web-link" href="${inv.web}" target="_blank" onclick="event.stopPropagation()">↗</a>`
     :`<span class="no-link">·</span>`;
   const newTag = inv.group==='new'
-    ?`<span style="font-size:8px;color:#9b6bd4;margin-left:5px;letter-spacing:1px;">NUEVA</span>`:'';
+    ?`<span style="font-size:8px;color:#7c4dcc;margin-left:5px;letter-spacing:1px;background:#f0eaf8;padding:1px 5px;border-radius:4px;">NUEVA</span>`:'';
 
   list.innerHTML+=`
     <div class="portfolio-item" data-status="${inv.status}" data-group="${inv.group}" style="animation-delay:${0.35+idx*0.04}s">
@@ -613,7 +636,7 @@ investments.forEach((inv,idx)=>{
       <div class="col-r"><span class="amt">${fmt}</span></div>
       <div class="col-r"><span class="eq">${inv.equity}</span></div>
       <div class="col-r">${tirHtml}</div>
-      <div class="col-r"><div class="bar-wrap"><span class="pct-lbl">${pct}%</span><div class="bar-bg"><div class="bar-fill" style="width:${barPct}%;background:${inv.color};animation-delay:${0.65+idx*0.04}s"></div></div></div></div>
+      <div class="col-r"><div class="bar-wrap"><span class="pct-lbl">${pct}%</span><div class="bar-bg"><div class="bar-fill" style="width:${barPct}%;background:${inv.color};animation-delay:${0.65+idx*0.04}s;opacity:0.7;"></div></div></div></div>
       <div class="col-r"><span class="badge ${sCls}">${sLbl}</span></div>
       <div>${webHtml}</div>
     </div>`;
